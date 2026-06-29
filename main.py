@@ -1,19 +1,11 @@
-import psycopg2
+from BD_connect import conn
 import ccxt
 import time
 
 ##
 exchenge = ccxt.bybit()
 
-
 ##
-conn = psycopg2.connect(
-    host='localhost',
-    dbname='crypto_data',
-    user='postgres',
-    password='makar',
-    port=5432
-)
 curr = conn.cursor()
 
 ##
