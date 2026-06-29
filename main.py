@@ -4,7 +4,7 @@ import time
 
 ##
 exchenge = ccxt.bybit()
-ticker = exchenge.fetch_ticker('BTC/USDT')
+
 
 ##
 conn = psycopg2.connect(
@@ -19,6 +19,7 @@ curr = conn.cursor()
 ##
 while True:
     try:
+        ticker = exchenge.fetch_ticker('BTC/USDT')
         curr.execute(
             "INSERT INTO prices (symbol, price, volume) VALUES (%s, %s, %s)",
             (ticker['symbol'], ticker['last'], ticker['baseVolume']))
