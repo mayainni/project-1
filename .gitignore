@@ -6,6 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
+BD_connect
+
 # Distribution / packaging
 .Python
 build/
