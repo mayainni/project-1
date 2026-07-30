@@ -5,5 +5,3 @@ CREATE TABLE prices(
     volume NUMERIC(20, 8),
     fetched_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
-
-SELECT * FROM prices
