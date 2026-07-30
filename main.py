@@ -1,6 +1,7 @@
 import BD_connect
 import ccxt
 import time
+import random
 
 ## Получение массива данных крипты
 exchenge = ccxt.bybit()
@@ -8,7 +9,7 @@ exchenge = ccxt.bybit()
 ## Подключение к БД
 curr = BD_connect.conn.cursor()
 
-## Функция, которая заносит из массива в таблицу каждые 60 секунд
+## Функция, которая заносит из массива в таблицу каждые 5-60 секунд
 while True:
     try:
         ticker = exchenge.fetch_ticker('BTC/USDT')
@@ -19,4 +20,4 @@ while True:
         print(f"Записано: {ticker['symbol']} = {ticker['last']}")
     except Exception as e:
         print(f"Ошибка: {e}")
-    time.sleep(60)
+    time.sleep(random.randrange(5,60,5))
